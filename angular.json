@@ -25,6 +25,10 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/primeng/resources/primeng.css",
+              "./node_modules/primeng/resources/themes/lara-light-teal/theme.css",
+              "./node_modules/primeflex/primeflex.css",
+              "./node_modules/primeicons/primeicons.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -51,7 +55,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"

@@ -1,0 +1,25 @@
+.navbar {
+  width: 100%;
+}
+
+:host ::ng-deep .p-menubar {
+  height: 100%;
+  width: 100%;
+}
+
+:host ::ng-deep .p-menubar-root-list {
+  width: fit-content;
+  margin: auto;
+} 
+
+:host ::ng-deep p-menubarsub {
+  width: 100%;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.logo:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}

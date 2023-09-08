@@ -1,0 +1,19 @@
+:host ::ng-deep .p-panel-header {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  margin: 0px;
+}
+
+:host ::ng-deep .p-toggleable-content  {
+    height: 100%;
+    background-color: blueviolet;
+  border-color: yellow !important;
+}
+
+.mainDiv{
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

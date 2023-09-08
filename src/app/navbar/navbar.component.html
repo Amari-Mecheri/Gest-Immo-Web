@@ -1,0 +1,10 @@
+<div class="navbar">
+    <p-menubar [model]="items">
+        <ng-template pTemplate="start">
+            <img src="./assets/images/gest-immo-logo.jpg" alt="Logo" routerLink="/" class="logo"/>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <input type="text" pInputText="pInputText" placeholder="Rechercher" class="w-full"/>
+        </ng-template>
+    </p-menubar>
+</div>

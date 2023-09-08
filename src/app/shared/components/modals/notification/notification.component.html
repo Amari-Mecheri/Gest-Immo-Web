@@ -1,0 +1,11 @@
+<p-dialog [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="header" ngClass="{'text-success': isSuccess,'text-danger':!isSuccess}">
+        {{title}}
+    </ng-template>
+    <p class="m-0">{{message}}</p>
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)="displayModal=false" label="Yes" class="p-button-text"></p-button>
+            <p-button icon="pi pi-times" (click)="displayModal=false" label="No"></p-button>
+        </ng-template>
+</p-dialog>
