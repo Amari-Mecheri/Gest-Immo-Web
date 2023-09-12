@@ -8,27 +8,36 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotificationComponent } from './components/modals/notification/notification.component';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
+import { PanelModule } from 'primeng/panel';
+
 
 @NgModule({
   declarations: [
     NotFoundComponent,
     ValidationMessagesComponent,
     NotificationComponent,
+    
   ],
+  providers: [DialogService],
   imports: [
     CommonModule,
     RouterModule,
+    DynamicDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
     DialogModule,
     ButtonModule,
+    PanelModule
   ],
   exports: [
     RouterModule,
+    DynamicDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
     DialogModule,
     ButtonModule,
+    PanelModule
   ],
 })
 export class SharedModule {}

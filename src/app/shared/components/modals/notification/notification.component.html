@@ -1,6 +1,28 @@
-<p-dialog [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+<p-panel [style.backgroundColor]="'red'">
+    <ng-template pTemplate="header" class="w-full">
+        <div class="w-full text-2xl" [ngStyle]="{ color: isSuccess ? 'green' : 'red' }">{{ title }}</div>
+    </ng-template>
+    <p class="block text-center p-0 m-0 w-full">{{ message }}</p>
+    <ng-template pTemplate="footer">
+      <p class="flex align-items-center w-full p-0 m-0">
+        <button
+        class="m-auto"
+          pButton
+          pRipple
+          label="ok"
+          [style]="{ width: '30%' }"
+          (click)="close()"
+        ></button>
+      </p>
+    </ng-template>
+  </p-panel>
+
+
+
+<!-- <p-dialog [baseZIndex]="10000"
     [draggable]="false" [resizable]="false">
     <ng-template pTemplate="header" ngClass="{'text-success': isSuccess,'text-danger':!isSuccess}">
+        voici le message que vous espériez:
         {{title}}
     </ng-template>
     <p class="m-0">{{message}}</p>
@@ -8,4 +30,43 @@
             <p-button icon="pi pi-check" (click)="displayModal=false" label="Yes" class="p-button-text"></p-button>
             <p-button icon="pi pi-times" (click)="displayModal=false" label="No"></p-button>
         </ng-template>
-</p-dialog>
+</p-dialog> -->
+<!-- <p-panel class="flex flex-colum justify-content-between h-full w-full" [style.backgroundColor]="'red'">
+  <ng-template pTemplate="header">
+    <p class="text-2xl p-0 m-0 w-full" [ngStyle]="{ color: isSuccess ? 'green' : 'red' }">
+      {{ title }}
+    </p>
+  </ng-template>
+  <p class="block text-center p-0 m-0 w-full">{{ message }}</p>
+  <ng-template pTemplate="footer">
+    <p class="flex align-items-center w-full">
+      <button
+      class="m-auto"
+        pButton
+        pRipple
+        label="ok"
+        [style]="{ width: '30%' }"
+        (click)="close()"
+      ></button>
+    </p>
+  </ng-template>
+</p-panel> -->
+
+<!-- <div class="flex justify-content-center">
+  <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+    <div class="header" [ngStyle]="{'color': isSuccess?'green':'red'}">
+      {{ title }}
+    </div>
+
+    <div>
+      <p>{{ message }}</p>
+      <button
+        pButton
+        pRipple
+        label="ok"
+        class="w-full"
+        (click)="close()"
+      ></button>
+    </div>
+  </div>
+</div> -->
