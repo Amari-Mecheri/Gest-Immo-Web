@@ -1,4 +1,4 @@
-<form
+<!-- <form
   [formGroup]="registerForm"
   (ngSubmit)="register()"
   class="flex justify-content-center"
@@ -17,9 +17,9 @@
       </div>
     </div>
 
-    <div>
-      <!-- firstName field -->
-      <div class="fieldHeader">
+    <div> -->
+<!-- firstName field -->
+<!-- <div class="fieldHeader">
         <label for="firstName" class="block text-900 font-medium mb-2"
           >Prénom</label
         >
@@ -47,10 +47,10 @@
         pInputText
         class="form-control w-full mb-3"
         [class.is.invalid]="submitted && registerForm.get('firstName')?.errors"
-      />
+      /> -->
 
-      <!-- lastName field -->
-      <div class="fieldHeader">
+<!-- lastName field -->
+<!-- <div class="fieldHeader">
         <label for="lastName" class="block text-900 font-medium mb-2"
           >Nom</label
         >
@@ -79,10 +79,10 @@
         pInputText
         class="form-control w-full mb-3"
         [class.is.invalid]="submitted && registerForm.get('lastName')?.errors"
-      />
+      /> -->
 
-      <!-- email field -->
-      <div class="fieldHeader">
+<!-- email field -->
+<!-- <div class="fieldHeader">
         <label for="email" class="block text-900 font-medium mb-2">Email</label>
         <span
           class="text-danger"
@@ -103,10 +103,10 @@
         pInputText
         class="form-control w-full mb-3"
         [class.is.invalid]="submitted && registerForm.get('email')?.errors"
-      />
+      /> -->
 
-      <!-- password field -->
-      <div class="fieldHeader">
+<!-- password field -->
+<!-- <div class="fieldHeader">
         <label for="password" class="block text-900 font-medium mb-2"
           >Mot de passe</label
         >
@@ -152,5 +152,160 @@
       class="w-full"
     ></p-message>
   </div>
-</form>
+</form> -->
 <!-- <div *ngIf="errorMessages.length>0">{{errorMessages}}</div> -->
+
+<div class="d-flex justify-content-center">
+  <div class="col-12 col-lg-5">
+    <main class="form-signin bg-secondary bg-gradient p-3 rounded">
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="register()"
+        autocomplete="off"
+      >
+      <div class=" d-flex flex-column">
+        <div>
+          <img
+            src="assets/images/bienvenue.png"
+            alt="Image"
+            height="150"
+            class="mb-3"
+          />
+        </div>
+        <div>
+          <h4 class="text-light mb-4 text-center"
+            >Les éléments suivants sont requis pour la création d'un nouveau compte</h4
+          >
+        </div>
+      </div>
+        <!-- <div class="text-center mb-4">
+          <h3 class="mb-3 font-weight-normal">Inscription</h3>
+        </div> -->
+        <div class="form-floating mb-3">
+          <input
+            formControlName="firstName"
+            type="text"
+            class="form-control"
+            placeholder="Prénom"
+            [class.is-invalid]="
+              submitted && registerForm.get('firstName')?.errors
+            "
+          />
+          <label for="firstName">Prénom</label>
+          <span
+            class="text-warning"
+            *ngIf="
+              submitted && registerForm.get('firstName')?.hasError('required')
+            "
+          >
+            Le prénom est requis!
+          </span>
+          <span
+            class="text-warning"
+            *ngIf="
+              (submitted &&
+                registerForm.get('firstName')?.hasError('minlength')) ||
+              registerForm.get('firstName')?.hasError('maxlength')
+            "
+          >
+            Le prénom doit contenir entre 3 et 15 caractères
+          </span>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            formControlName="lastName"
+            type="text"
+            class="form-control"
+            placeholder="Nom"
+            [class.is-invalid]="
+              submitted && registerForm.get('lastName')?.errors
+            "
+          />
+          <label for="lastName">Nom</label>
+          <span
+            class="text-warning"
+            *ngIf="
+              submitted && registerForm.get('lastName')?.hasError('required')
+            "
+          >
+            Le nom est requis!
+          </span>
+          <span
+            class="text-warning"
+            *ngIf="
+              (submitted &&
+                registerForm.get('lastName')?.hasError('minlength')) ||
+              registerForm.get('lastName')?.hasError('maxlength')
+            "
+          >
+            Le nom doit contenir entre 3 et 15 caractères
+          </span>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            formControlName="email"
+            type="text"
+            class="form-control"
+            placeholder="Adresse email"
+            [class.is-invalid]="submitted && registerForm.get('email')?.errors"
+          />
+          <label for="email">Adresse email</label>
+          <span
+            class="text-warning"
+            *ngIf="submitted && registerForm.get('email')?.hasError('required')"
+          >
+            Une adresse email est requise!
+          </span>
+          <span
+            class="text-warning"
+            *ngIf="submitted && registerForm.get('email')?.hasError('pattern')"
+          >
+            Adresse email invalide!
+          </span>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            placeholder="Mot de passe"
+            [class.is-invalid]="
+              submitted && registerForm.get('password')?.errors
+            "
+          />
+          <label for="password">Mot de passe</label>
+          <span
+            class="text-warning"
+            *ngIf="
+              submitted && registerForm.get('password')?.hasError('required')
+            "
+          >
+            Un mot de passe est requis!
+          </span>
+          <span
+            class="text-warning"
+            *ngIf="
+              (submitted &&
+                registerForm.get('password')?.hasError('minlength')) ||
+              registerForm.get('password')?.hasError('maxlength')
+            "
+          >
+            Le mot de passe doit contenir entre 8 et 15 caractères
+          </span>
+        </div>
+
+        <div class="form-floating" *ngIf="errorMessages.length > 0">
+          <app-validation-messages
+            [errorMessages]="errorMessages"
+          ></app-validation-messages>
+        </div>
+
+        <div class="d-grid mt-4 px-1">
+          <button class="btn btn-lg btn-info" type="submit">
+            Enregistrer le compte
+          </button>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>

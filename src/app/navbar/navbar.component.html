@@ -1,4 +1,4 @@
-<div class="navbar">
+<!-- <div class="navbar">
     <p-menubar [model]="items">
         <ng-template pTemplate="start">
             <img src="./assets/images/gest-immo-logo.jpg" alt="Logo" routerLink="/" class="logo"/>
@@ -7,4 +7,227 @@
             <input type="text" pInputText="pInputText" placeholder="Rechercher" class="w-full"/>
         </ng-template>
     </p-menubar>
-</div>
+</div> -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient">
+    <div class="container">
+      <a
+        class="nav-brand logo rounded-pill"
+        style="transform: scale(1); background-color: white"
+      >
+        <img
+          src="./assets/images/gest-immo-logo.jpg"
+          alt="logo"
+          routerLink="/"
+          class="logo"
+          style="transform: scale(0.8); border-radius: 20%"
+        />
+      </a>
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto m-auto">
+          <li class="nav-item dropdown" dropdown>
+            <a
+              dropdownToggle
+              class="nav-link dropdown-toggle"
+              id="navbarScrollingDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-shop"></i> Agence
+            </a>
+            <ul
+              *dropdownMenu
+              class="dropdown-menu"
+              aria-labelledby="navbarScrollingDropdown"
+            >
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/Collaborateurs"
+                  routerLinkActive="active"
+                  ><i class="bi bi-people"></i> Collaborateurs</a
+                >
+              </li>
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/informations-agence"
+                  routerLinkActive="active"
+                  ><i class="bi bi-card-list"></i> Informations générales</a
+                >
+              </li>
+              <div *ngIf="(this.accountService.user$ | async )">
+                <li role="menuitem"><hr class="dropdown-divider" /></li>
+                <li role="menuitem">
+                  <a
+                    class="dropdown-item"
+                    routerLink="/quit"
+                    routerLinkActive="active"
+                    ><i class="bi bi-power"></i> Déconnexion</a
+                  >
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" dropdown>
+            <a
+              dropdownToggle
+              class="nav-link dropdown-toggle"
+              id="navbarScrollingDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-folder"></i> Dossiers
+            </a>
+            <ul
+              *dropdownMenu
+              class="dropdown-menu"
+              aria-labelledby="navbarScrollingDropdown"
+            >
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/dossiers-immo-encours"
+                  routerLinkActive="active"
+                  ><i class="bi bi-folder2-open"></i> Dossiers en cours</a
+                >
+              </li>
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/dossiers-immo-clos"
+                  routerLinkActive="active"
+                  ><i class="bi bi-folder-check"></i> dossiers-immo-clos</a
+                >
+              </li>
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/dossiers-immo-annules"
+                  routerLinkActive="active"
+                  ><i class="bi bi-folder-x"></i> Dossiers annulés</a
+                >
+              </li>
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/dossiers-immo"
+                  routerLinkActive="active"
+                  ><i class="bi bi-window-stack"></i> Tous les dossiers</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" dropdown>
+            <a
+              dropdownToggle
+              class="nav-link dropdown-toggle"
+              id="navbarScrollingDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-person"></i> Mon compte
+            </a>
+            <ul
+              *dropdownMenu
+              class="dropdown-menu"
+              aria-labelledby="navbarScrollingDropdown"
+            >
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/moncompte-edit"
+                  routerLinkActive="active"
+                  ><i class="bi bi-pencil-square"></i> Editer</a
+                >
+              </li>
+              <div *ngIf="(this.accountService.user$ | async)">
+                <li role="menuitem"><hr class="dropdown-divider" /></li>
+                <li role="menuitem">
+                  <a
+                    class="dropdown-item"
+                    routerLink="/quit"
+                    routerLinkActive="active"
+                    ><i class="bi bi-power"></i> Déconnexion</a
+                  >
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" dropdown>
+            <a
+              dropdownToggle
+              class="nav-link dropdown-toggle"
+              id="navbarScrollingDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-plus-slash-minus"></i> Finances
+            </a>
+            <ul
+              *dropdownMenu
+              class="dropdown-menu"
+              aria-labelledby="navbarScrollingDropdown"
+            >
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/commission-percues"
+                  routerLinkActive="active"
+                  ><i class="bi bi-terminal-plus"></i> Commissions percues</a
+                >
+              </li>
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/commission-versees"
+                  routerLinkActive="active"
+                  ><i class="bi bi-terminal-dash"></i> Commissions versées</a
+                >
+              </li>
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/analyses-graphiques"
+                  routerLinkActive="active"
+                  ><i class="bi bi-graph-up-arrow"></i> Analyses et
+                  graphiques</a
+                >
+              </li>
+              <li role="menuitem">
+                <a
+                  class="dropdown-item"
+                  routerLink="/archives"
+                  routerLinkActive="active"
+                  ><i class="bi bi-archive"></i> Archives</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- <ul class="navbar-nav">
+            <li class="nav-item" *ngIf="(this.accountService.user$ | async)">
+              <a class="btn btn-secondary mx-2" routerLink="/quit">
+                <i class="bi bi-power"></i> Déconnexion
+              </a>
+            </li>
+          </ul> -->
+        </ul>
+        <div class="d-flex align-items-center" *ngIf="(this.accountService.user$ | async) as user">
+          <a class="text-light" style="text-decoration: none; cursor: pointer;">
+            Bonjour <span class="h3 text-warning">{{user.firstName | titlecase}}</span>            
+          </a>
+          <a class="btn btn-secondary mx-2" (click)="logout()">
+            <i class="bi bi-power"></i> Déconnexion
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

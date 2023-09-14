@@ -1,27 +1,23 @@
 import { Injectable } from '@angular/core';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { NotificationComponent } from './components/modals/notification/notification.component';
+import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
-  dynamicModalRef?: DynamicDialogRef;
+  bsModalRef?: BsModalRef;
 
-  constructor(private modalService: DialogService) {}
+  constructor(private modalService: BsModalService) {}
 
   showNotification(isSuccess: boolean, title: string, message: string): void {
-    const initialState = {
-        isSuccess: isSuccess,
-        title: title,
-        message: message,
+    const initialState: ModalOptions = {
+      initialState: { isSuccess, title, message },
     };
 
-    this.dynamicModalRef = this.modalService.open(NotificationComponent, {
-      header: title,
-      width: '50%',
-      data: initialState,
-      showHeader:false,
-    });
+    this.bsModalRef = this.modalService.show(
+      NotificationComponent,
+      initialState
+    );
   }
 }

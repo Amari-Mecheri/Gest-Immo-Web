@@ -6,11 +6,9 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NotificationComponent } from './components/modals/notification/notification.component';
-import { DialogModule } from 'primeng/dialog';
-import { ButtonModule } from 'primeng/button';
-import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
-import { PanelModule } from 'primeng/panel';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -19,25 +17,23 @@ import { PanelModule } from 'primeng/panel';
     NotificationComponent,
     
   ],
-  providers: [DialogService],
   imports: [
     CommonModule,
     RouterModule,
-    DynamicDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
-    DialogModule,
-    ButtonModule,
-    PanelModule
+    ModalModule.forRoot(),
+    CollapseModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   exports: [
     RouterModule,
-    DynamicDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
-    DialogModule,
-    ButtonModule,
-    PanelModule
+    ValidationMessagesComponent,
+    CollapseModule,
+    BsDropdownModule
+
   ],
 })
 export class SharedModule {}

@@ -91,7 +91,7 @@
   </div>
 </form> -->
 
-<form
+<!-- <form
   [formGroup]="loginForm"
   (ngSubmit)="login()"
   class="flex justify-content-center"
@@ -115,10 +115,12 @@
       >
     </div>
 
-    <div>
-      <!-- email field -->
-      <div class="fieldHeader">
-        <label for="userName" class="block text-900 font-medium mb-2">Votre adresse email</label>
+    <div> -->
+<!-- email field -->
+<!-- <div class="fieldHeader">
+        <label for="userName" class="block text-900 font-medium mb-2"
+          >Votre adresse email</label
+        >
         <span
           class="text-danger"
           *ngIf="submitted && loginForm.get('userName')?.hasError('required')"
@@ -133,18 +135,16 @@
         pInputText
         class="form-control w-full mb-3"
         [class.is.invalid]="submitted && loginForm.get('userName')?.errors"
-      />
+      /> -->
 
-      <!-- password field -->
-      <div class="fieldHeader">
+<!-- password field -->
+<!-- <div class="fieldHeader">
         <label for="password" class="block text-900 font-medium mb-2"
           >Mot de passe</label
         >
         <span
           class="text-danger"
-          *ngIf="
-            submitted && loginForm.get('password')?.hasError('required')
-          "
+          *ngIf="submitted && loginForm.get('password')?.hasError('required')"
         >
           Le mot de passe est requis!
         </span>
@@ -173,8 +173,13 @@
         >
       </div>
 
-      <button pButton pRipple label="Connexion" icon="pi pi-user"
-      class="w-full"></button>
+      <button
+        pButton
+        pRipple
+        label="Connexion"
+        icon="pi pi-user"
+        class="w-full"
+      ></button>
     </div>
     <p-message
       *ngIf="errorMessages.length > 0"
@@ -183,5 +188,84 @@
       class="w-full"
     ></p-message>
   </div>
-</form>
+</form> -->
 
+<div class="d-flex justify-content-center">
+  <div class="col-12 col-lg-5">
+    <main class="form-signin bg-secondary bg-gradient p-3 rounded">
+      <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+        <!-- <div class="text-center mb-4">
+          <h3 class="mb-3 font-weight-normal"><i class="bi bi-pass"></i> Veuillez indiquer vos identifiants</h3>
+        </div> -->
+        <div class="mb-5 d-flex flex-column">
+          <div>
+            <img
+              src="assets/images/bienvenue.png"
+              alt="Image"
+              height="150"
+              class="mb-3"
+            />
+          </div>
+          <div class="d-flex flex-row-reverse">
+            <a
+              class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
+              routerLink="/account/register"
+              >Inscrivez la maintenant!</a
+            >
+            <span class="text-600 font-medium line-height-3 text-primary"
+              >Votre agence n'est pas inscrite?&nbsp;&nbsp;&nbsp;</span
+            >
+          </div>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            formControlName="userName"
+            type="text"
+            class="form-control"
+            placeholder="Adresse email"
+            [class.is-invalid]="submitted && loginForm.get('userName')?.errors"
+          />
+          <label for="userName">Adresse email</label>
+          <span
+            class="text-warning"
+            *ngIf="submitted && loginForm.get('userName')?.hasError('required')"
+          >
+            Une adresse email est requise!
+          </span>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            placeholder="Mot de passe"
+            [class.is-invalid]="submitted && loginForm.get('password')?.errors"
+          />
+          <label for="password">Mot de passe</label>
+          <span
+            class="text-warning"
+            *ngIf="submitted && loginForm.get('password')?.hasError('required')"
+          >
+            Un mot de passe est requis!
+          </span>
+        </div>
+
+        <div class="form-floating" *ngIf="errorMessages.length > 0">
+          <app-validation-messages
+            [errorMessages]="errorMessages"
+          ></app-validation-messages>
+        </div>
+
+        <div class="d-grid mt-4 px-1">
+          <button class="btn btn-lg btn-info" type="submit">Connexion</button>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <a class="btn btn-link">
+          <h6>Vous avez oublié vos identifiants de connexion?</h6>
+        </a>
+      </div>
+    </main>
+  </div>
+</div>

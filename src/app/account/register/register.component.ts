@@ -69,8 +69,7 @@ export class RegisterComponent implements OnInit {
       this.accountService.register(this.registerForm.value).subscribe({
         next: (response:any) => {
           this.sharedService.showNotification(true, response.value.title, response.value.message);
-          this.router.navigateByUrl('/login');
-          console.log(response);
+          this.router.navigateByUrl('/account/login');
         },
         error: (error) => {
           if(error.error.errors){

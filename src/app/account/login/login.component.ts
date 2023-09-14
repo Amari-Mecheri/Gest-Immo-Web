@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountService } from '../account.service';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit,AfterViewInit {
   constructor(
     private accountService: AccountService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -24,7 +26,8 @@ export class LoginComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.sharedService.showNotification(true, "ecran de login", "ceci est un test de notification");
+  //  this.sharedService.showNotification(true, "ecran de login", this.accountService.user$ !=null ? "null": this.accountService.user$);
+   //console.log(this.accountService.user$);
   }
 
   initializeForm(): void {
@@ -38,12 +41,10 @@ export class LoginComponent implements OnInit,AfterViewInit {
     this.submitted = true;
     this.errorMessages = [];
 
-    // if (this.loginForm.valid) {
+    if (this.loginForm.valid) {
       this.accountService.login(this.loginForm.value).subscribe({
         next: (response:any) => {
-          // this.sharedService.showNotification(true, response.value.title, response.value.message);
-          this.router.navigateByUrl('/login');
-          console.log(response);
+          // console.log(response);
         },
         error: (error) => {
           if(error.error.errors){
@@ -53,7 +54,7 @@ export class LoginComponent implements OnInit,AfterViewInit {
           }
         },
       });
-    // }
+    }
 
   }
 }

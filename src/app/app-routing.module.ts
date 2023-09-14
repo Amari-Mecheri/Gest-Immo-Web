@@ -7,8 +7,8 @@ import { RegisterComponent } from './account/register/register.component';
 
 const routes: Routes = [
   { path: '',component: LoginComponent},
-  { path: 'login',component: LoginComponent},
-  { path: 'register',component: RegisterComponent},
+  { path: 'account/login',component: LoginComponent},
+  { path: 'account/register',component: RegisterComponent},
   { path: 'account',loadChildren: () => import('./account/account.module').then(module =>module.AccountModule)},
   { path: 'not-found',component: NotFoundComponent},
   { path: '**',component:NotFoundComponent, pathMatch: 'full'}

@@ -4,28 +4,17 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AccountRoutingModule } from './account-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CheckboxModule } from 'primeng/checkbox';
-import { InputTextModule } from 'primeng/inputtext';
-import { ButtonModule } from 'primeng/button';
-import { RippleModule } from 'primeng/ripple';
-import { CardModule } from 'primeng/card';
-import { SharedModule } from 'primeng/api';
-import {MessageModule} from 'primeng/message';
+import { SharedModule } from '../shared/shared.module';
+
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,
-    SharedModule,
     FormsModule,
-    CheckboxModule,
-    InputTextModule,
-    ButtonModule,
-    RippleModule,
-    CardModule,
     ReactiveFormsModule,
-    MessageModule
+    SharedModule
   ],
 })
 export class AccountModule {}

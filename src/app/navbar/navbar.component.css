@@ -1,4 +1,4 @@
-.navbar {
+/* .navbar {
   width: 100%;
 }
 
@@ -16,10 +16,16 @@
   width: 100%;
 }
 
+*/
+
 .logo {
   cursor: pointer;
 }
 
 .logo:hover {
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: 0 0 11px lightgray;
+} 
+
+.active{
+  color: brown !important;
 }

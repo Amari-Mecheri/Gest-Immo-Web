@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { MenubarModule } from 'primeng/menubar';
-import { PanelModule } from 'primeng/panel';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -17,8 +15,6 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MenubarModule,
-    PanelModule,
     SharedModule,
   ],
   providers: [],
