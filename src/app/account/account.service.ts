@@ -47,7 +47,6 @@ export class AccountService {
   logout(){
     localStorage.removeItem(environment.userKey);
     this.userSource.next(null);
-    this.router.navigateByUrl('/');
   }
 
   getJWT() {
