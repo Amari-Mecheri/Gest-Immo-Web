@@ -6,9 +6,10 @@ import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { AccountService } from './account/account.service';
 import { take } from 'rxjs';
-import { User } from './shared/models/user';
+import { User } from './shared/models/account/user';
 import { AgenceComponent } from './agence/agence.component';
 import { authorizationGuard } from './shared/guards/authorization.guard';
+import { ConfirmEmailComponent } from './account/confirm-email/confirm-email.component';
 
 // isLogedIn and isNotLoggedIn were guards that were meant to
 // redirected a not logged in user to the login form but it this is now
@@ -58,6 +59,7 @@ const routes: Routes = [
     // runGuardsAndResolvers: 'always',
   },
   { path: 'account/register', component: RegisterComponent },
+  { path: 'account/confirm-email', component: ConfirmEmailComponent },
   {
     path: 'account',
     loadChildren: () =>

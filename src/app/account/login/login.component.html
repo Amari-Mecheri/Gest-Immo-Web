@@ -1,195 +1,3 @@
-<!-- <form
-  [formGroup]="loginForm"
-  (ngSubmit)="login()"
-  class="flex justify-content-center"
-  autocomplete="off"
->
-  <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
-    <div class="text-center mb-5">
-      <img
-        src="assets/images/bienvenue.jpg"
-        alt="Image"
-        height="150"
-        class="mb-3"
-      />
-      <span class="text-600 font-medium line-height-3"
-        >Pas encore inscrit?</span
-      >
-      <a
-        class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
-        routerLink="/register"
-        >Enregistrez-vous maintenant!</a
-      >
-    </div>
-
-    <div>
-      <div class="fieldHeader">
-        <label for="email" class="block text-900 font-medium mb-2">Email</label>
-        <span
-          class="text-danger"
-          *ngIf="submitted && loginForm.get('userName')?.hasError('required')"
-        >
-          Une adresse email est requise!
-        </span>
-        <input
-          formControlName="userName"
-          type="text"
-          placeholder="Votre adresse email"
-          pInputText
-          class="form-control w-full mb-3"
-          [class.is.invalid]="submitted && loginForm.get('userName')?.errors"
-        />
-      </div>
-
-      <div class="fieldHeader">
-        <label for="password" class="block text-900 font-medium mb-2"
-          >Mot de passe</label
-        >
-        <span
-          class="text-danger"
-          *ngIf="submitted && loginForm.get('password')?.hasError('required')"
-        >
-          Le mot de passe est requis!
-        </span>
-        <input
-          formControlName="password"
-          type="password"
-          placeholder="Mot de passe"
-          pInputText
-          class="form-control w-full mb-3"
-          [class.is.invalid]="submitted && loginForm.get('password')?.errors"
-        />
-      </div>
-
-      <div class="flex align-items-center justify-content-between mb-6">
-        <div class="flex align-items-center">
-          <p-checkbox
-            id="rememberme"
-            [binary]="true"
-            styleClass="mr-2"
-          ></p-checkbox>
-          <label for="rememberme" class="text-900">Rester connecté</label>
-        </div>
-        <a
-          class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
-          >Mot de passe oublié?</a
-        >
-      </div>
-
-      <button
-        pButton
-        pRipple
-        label="Connexion"
-        icon="pi pi-user"
-        class="w-full"
-      ></button>
-    </div>
-    <p-message *ngIf="errorMessages.length > 0" severity="error"
-      text="{{ errorMessages }}"
-      class="w-full"
-    ></p-message>
-  </div>
-</form> -->
-
-<!-- <form
-  [formGroup]="loginForm"
-  (ngSubmit)="login()"
-  class="flex justify-content-center"
-  autocomplete="off"
->
-  <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
-    <div class="text-center mb-5">
-      <img
-        src="assets/images/bienvenue.jpg"
-        alt="Image"
-        height="150"
-        class="mb-3"
-      />
-      <span class="text-600 font-medium line-height-3"
-        >Pas encore inscrit?</span
-      >
-      <a
-        class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
-        routerLink="/register"
-        >Enregistrez-vous maintenant!</a
-      >
-    </div>
-
-    <div> -->
-<!-- email field -->
-<!-- <div class="fieldHeader">
-        <label for="userName" class="block text-900 font-medium mb-2"
-          >Votre adresse email</label
-        >
-        <span
-          class="text-danger"
-          *ngIf="submitted && loginForm.get('userName')?.hasError('required')"
-        >
-          Votre adresse email est requise!
-        </span>
-      </div>
-      <input
-        formControlName="userName"
-        type="text"
-        placeholder="Adresse email"
-        pInputText
-        class="form-control w-full mb-3"
-        [class.is.invalid]="submitted && loginForm.get('userName')?.errors"
-      /> -->
-
-<!-- password field -->
-<!-- <div class="fieldHeader">
-        <label for="password" class="block text-900 font-medium mb-2"
-          >Mot de passe</label
-        >
-        <span
-          class="text-danger"
-          *ngIf="submitted && loginForm.get('password')?.hasError('required')"
-        >
-          Le mot de passe est requis!
-        </span>
-      </div>
-      <input
-        formControlName="password"
-        type="password"
-        placeholder="Mot de passe"
-        pInputText
-        class="form-control w-full mb-3"
-        [class.is.invalid]="submitted && loginForm.get('password')?.errors"
-      />
-
-      <div class="flex align-items-center justify-content-between mb-6">
-        <div class="flex align-items-center">
-          <p-checkbox
-            id="rememberme"
-            [binary]="true"
-            styleClass="mr-2"
-          ></p-checkbox>
-          <label for="rememberme" class="text-900">Rester connecté</label>
-        </div>
-        <a
-          class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
-          >Mot de passe oublié?</a
-        >
-      </div>
-
-      <button
-        pButton
-        pRipple
-        label="Connexion"
-        icon="pi pi-user"
-        class="w-full"
-      ></button>
-    </div>
-    <p-message
-      *ngIf="errorMessages.length > 0"
-      severity="error"
-      text="{{ errorMessages }}"
-      class="w-full"
-    ></p-message>
-  </div>
-</form> -->
-
 <div class="d-flex justify-content-center">
   <div class="col-12 col-lg-5">
     <main class="form-signin bg-secondary bg-gradient p-3 rounded">
@@ -255,6 +63,12 @@
           <app-validation-messages
             [errorMessages]="errorMessages"
           ></app-validation-messages>
+          <a
+            class="btn btn-link"
+            (click)="resendEmailConfirmationLink()"
+            *ngIf="errorMessages[0].includes('Veuillez confirmer votre email')"
+            >Cliquez ici pour renvoyer l'email de confirmation</a
+          >
         </div>
 
         <div class="d-grid mt-4 px-1">
@@ -262,7 +76,7 @@
         </div>
       </form>
       <div class="mt-4 text-center">
-        <a class="btn btn-link">
+        <a class="btn btn-link" routerLink="/account/send-email/forgot-username-or-password">
           <h6>Vous avez oublié vos identifiants de connexion?</h6>
         </a>
       </div>
